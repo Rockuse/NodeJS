@@ -6,7 +6,7 @@ const { habitablePlanets } = require('@storage/storage');
 
 function isHabitable(planet) {
   return planet.koi_disposition === 'CONFIRMED' && planet.koi_insol > 0.36 && planet.koi_insol < 1.11
-  && planet.koi_prad < 1.6;
+&& planet.koi_prad < 1.6;
 }
 
 fs.createReadStream(resolve(__dirname, '../../public/doc/kepler_data.csv'))
@@ -20,3 +20,14 @@ fs.createReadStream(resolve(__dirname, '../../public/doc/kepler_data.csv'))
   .on('end', () => {
     console.log(`${habitablePlanets.length} habitable planets found!`);
   });
+
+const planets = {
+  getAll: (req, res) => [
+    res.json({
+      status: 'success',
+      data: habitablePlanets,
+    }),
+  ],
+
+};
+module.exports = planets;

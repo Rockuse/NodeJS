@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon config/server.js"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +27,6 @@
     "@src": "src",
     "@storage": "public/storage",
     "@doc": "public/doc",
-    "@controller": "src/controller",
-    "@model": "src/model",
-    "@routes": "src/routes"
-    
+    "@config": "config"
   }
 }
