@@ -4,7 +4,7 @@ const { friends } = require('@storage/storage');
 
 module.exports = {
   getAll: (req, res) => {
-    res.send(friends);
+    res.json(friends);
   },
 
   addOne: (req, res) => {
