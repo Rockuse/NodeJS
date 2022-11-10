@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"cd backend && npm run watch",
-    "watch":""
+    "server": "npm start --prefix backend",
+    "client": "npm start --prefix frontend",
+    "watch": "concurrently  \"npm run server\" \"npm run client\"",
+    "getstart": "concurrently  \"npm install --prefix backend\" \"npm install --prefix frontend\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Rockuse/Planet-Project/issues"
   },
-  "homepage": "https://github.com/Rockuse/Planet-Project#readme"
+  "homepage": "https://github.com/Rockuse/Planet-Project#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
 }
