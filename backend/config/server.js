@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
 async function start() {
   await loadPlanetData();
-  server.listen(PORT, () => {
+  server.listen(PORT, process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0', () => {
     console.log('connected');
   });
 }
