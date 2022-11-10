@@ -3,7 +3,7 @@ const http = require('http');
 const loadPlanetData = require('@src/planets/planet.models');
 const app = require('./app');
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 async function start() {
   await loadPlanetData();
