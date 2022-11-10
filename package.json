@@ -1,0 +1,21 @@
+{
+  "name": "planet-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"cd backend && npm run watch",
+    "watch":""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rockuse/Planet-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rockuse/Planet-Project/issues"
+  },
+  "homepage": "https://github.com/Rockuse/Planet-Project#readme"
+}

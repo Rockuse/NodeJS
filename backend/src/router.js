@@ -1,4 +1,4 @@
-require('module-alias');
+require('module-alias/register');
 const planets = require('./planets/planet.routes');
 const site = require('./sites/sites.routes');
 const friends = require('./friends/friend.routes');

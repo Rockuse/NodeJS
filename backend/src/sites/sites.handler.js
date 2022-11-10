@@ -1,4 +1,3 @@
-require('module-alias');
 const path = require('path');
 
 const handler = {
