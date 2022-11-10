@@ -8,8 +8,8 @@ const server = http.createServer(app);
 async function start() {
   await loadPlanetData();
   server.listen(PORT, process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0', () => {
-    console.log(`connected to ${process.env.NODE_ENV}`);
-    console.log(server.address());
+    console.log(`connected to ${process.env.PORT}`);
+    console.log(process.env);
   });
 }
 start();
