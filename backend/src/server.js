@@ -2,7 +2,7 @@ require('dotenv').config();
 require('module-alias/register');
 const http = require('http');
 const loadPlanetData = require('@src/planets/planet.models');
-const app = require('./app');
+const app = require('@config/app');
 
 const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
