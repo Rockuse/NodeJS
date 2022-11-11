@@ -2,9 +2,12 @@ import { useMemo } from "react";
 import { Appear, Table, Paragraph } from "arwes";
 
 const History = props => {
+  
   const tableBody = useMemo(() => {
-    return props.launches?.filter((launch) => !launch.upcoming)
+    return props.launches?.filter((launch) => {console.log(launch)
+      return !launch.upcoming})
       .map((launch) => {
+        
         return <tr key={String(launch.flightNumber)}>
           <td>
             <span style={
