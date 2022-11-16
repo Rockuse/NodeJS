@@ -7,13 +7,14 @@ module.exports = {
   },
   addLaunch: async (req, res) => {
     const launch = req.body;
-    console.log()
+    console.log();
     launch.launchDate = new Date(launch.launchDate);
-    if (!launch.launchDate || !launch.mission || !launch.rocket || !launch.target || !launch.customers) {
+    if (!launch.launchDate || !launch.mission || !launch.rocket || !launch.target
+      || !launch.customers) {
       return res.status(400).json({ error: 'Missing required launch property', ok: false });
     }
     if (isNaN(launch.launchDate)) {
-      return res.status(400).json({ error: 'Invalid launch date', ok: false  });
+      return res.status(400).json({ error: 'Invalid launch date', ok: false });
     }
     model.addDataLaunch(launch); // Add data
     return res.status(201).json(launch);

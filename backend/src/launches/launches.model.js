@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 require('module-alias/register');
 const { launch } = require('@storage/storage.js');
 
@@ -20,8 +21,8 @@ function getAllLaunches() {
 
 function addDataLaunch(item) {
   latestFlightNumber += 1;
-  item.customers=item.customers.split(',')
-  console.log(item)
+  item.customers = item.customers.split(',');
+  console.log(item);
   launches.set(latestFlightNumber, Object.assign(item, {
     flightNumber: latestFlightNumber,
     upcoming: true,
@@ -46,5 +47,5 @@ function successLaunchById(id) {
 }
 
 module.exports = {
-  getAllLaunches, addDataLaunch, existLaunchById, abortLaunchById,successLaunchById,
+  getAllLaunches, addDataLaunch, existLaunchById, abortLaunchById, successLaunchById,
 };
