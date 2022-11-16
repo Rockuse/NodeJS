@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && mv ./build ../backend/",
-    "build-aws": "react-scripts build && sudo mv ./build ../backend/",
+    "build-aws": "react-scripts build && sudo mv -r ./build ../backend/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
