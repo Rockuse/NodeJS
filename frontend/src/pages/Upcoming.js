@@ -23,6 +23,7 @@ const Upcoming = props => {
     launches,
     classes,
     abortLaunch,
+    successLaunch,
   } = props;
 
   const tableBody = useMemo(() => {
@@ -33,6 +34,11 @@ const Upcoming = props => {
             <Clickable style={{color:"red"}}>
               <Link className={classes.link} onClick={() => abortLaunch(launch.flightNumber)}>
                 ✖
+              </Link>
+            </Clickable>&nbsp;&nbsp;
+            <Clickable style={{color:"green"}}>
+              <Link className={classes.link} onClick={() => successLaunch(launch.flightNumber)}>
+              &#10003;
               </Link>
             </Clickable>
           </td>

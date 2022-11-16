@@ -26,6 +26,8 @@ const Launch = props => {
       <input type="text" id="mission-name" name="mission-name" />
       <label htmlFor="rocket-name">Rocket Type</label>
       <input type="text" id="rocket-name" name="rocket-name" defaultValue="Explorer IS1" />
+      <label htmlFor="customer-name">Customers</label>
+      <input type="text" id="customer-name" name="customer-name"/>
       <label htmlFor="planets-selector">Destination Exoplanet</label>
       <select id="planets-selector" name="planets-selector">
         {selectorBody}

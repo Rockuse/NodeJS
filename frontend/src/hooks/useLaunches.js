@@ -4,6 +4,7 @@ import {
   httpGetLaunches,
   httpSubmitLaunch,
   httpAbortLaunch,
+  httpsuccessLaunch,
 } from './requests';
 
 function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
@@ -27,13 +28,15 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
     const mission = data.get("mission-name");
     const rocket = data.get("rocket-name");
     const target = data.get("planets-selector");
+    const customers = data.get("customer-name");
     const response = await httpSubmitLaunch({
       launchDate,
       mission,
       rocket,
       target,
+      customers,
     });
- 
+
     // TODO: Set success based on response.
     // const await axios.post()
     const success = response.ok;
@@ -44,17 +47,33 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
         onSuccessSound();
       }, 800);
     } else {
+      setTimeout(() => {
+        setPendingLaunch(false);
+      }, 800);
       onFailureSound();
     }
   }, [getLaunches, onSuccessSound, onFailureSound]);
 
   const abortLaunch = useCallback(async (id) => {
     const response = await httpAbortLaunch(id);
-
+    console.log(response)
     // TODO: Set success based on response.
     const success = response.ok;
     if (success) {
-      getLaunches();
+      await getLaunches();
+      onAbortSound();
+    } else {
+      onFailureSound();
+    }
+  }, [getLaunches, onAbortSound, onFailureSound]);
+
+  const successLaunch = useCallback(async (id) => {
+    const response = await httpsuccessLaunch(id);
+    console.log(response)
+    // TODO: Set success based on response.
+    const success = response.ok;
+    if (success) {
+      await getLaunches();
       onAbortSound();
     } else {
       onFailureSound();
@@ -66,6 +85,7 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
     isPendingLaunch,
     submitLaunch,
     abortLaunch,
+    successLaunch,
   };
 }
 

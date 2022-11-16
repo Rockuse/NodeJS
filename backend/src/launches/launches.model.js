@@ -17,13 +17,15 @@ launches.set(launch.flightNumber, launch);
 function getAllLaunches() {
   return Array.from(launches.values());
 }
+
 function addDataLaunch(item) {
   latestFlightNumber += 1;
+  item.customers=item.customers.split(',')
+  console.log(item)
   launches.set(latestFlightNumber, Object.assign(item, {
     flightNumber: latestFlightNumber,
     upcoming: true,
     success: true,
-    customers: ['Zero To Mastery', 'NASI'],
   }));
 }
 
@@ -36,6 +38,13 @@ function abortLaunchById(id) {
   aborted.success = false;
   return aborted;
 }
+function successLaunchById(id) {
+  const aborted = launches.get(id);
+  aborted.upcoming = false;
+  aborted.success = true;
+  return aborted;
+}
+
 module.exports = {
-  getAllLaunches, addDataLaunch, existLaunchById, abortLaunchById,
+  getAllLaunches, addDataLaunch, existLaunchById, abortLaunchById,successLaunchById,
 };

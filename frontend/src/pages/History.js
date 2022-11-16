@@ -4,7 +4,7 @@ import { Appear, Table, Paragraph } from "arwes";
 const History = props => {
   
   const tableBody = useMemo(() => {
-    return props.launches?.filter((launch) => {console.log(launch)
+    return props.launches?.filter((launch) => {
       return !launch.upcoming})
       .map((launch) => {
         
