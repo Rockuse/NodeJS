@@ -7,7 +7,6 @@ async function httpGetPlanets() {
 }
 
 async function httpGetLaunches() {
-  const response = await fetch('http://localhost:8000/planets')
   // TODO: Once API is ready.
   const response = await fetch(`${API_URL}/launches`)
   const fetchedlaunches = await response.json()
