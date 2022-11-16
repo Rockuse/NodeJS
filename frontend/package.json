@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "set BUILD_PATH=../backend/build&& react-scripts build",
+    "build": "react-scripts build && mv ./build ../backend/",
+    "build-aws": "react-scripts build && sudo mv ./build ../backend/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
