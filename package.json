@@ -25,5 +25,8 @@
   "homepage": "https://github.com/Rockuse/Planet-Project#readme",
   "dependencies": {
     "concurrently": "^7.5.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.1"
   }
 }

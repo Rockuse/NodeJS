@@ -49,7 +49,7 @@ const Upcoming = props => {
           <td>{launch.target}</td>
         </tr>;
       });
-  }, [launches, abortLaunch, classes.link]);
+  }, [launches, abortLaunch, successLaunch, classes.link]);
 
   return <Appear id="upcoming" animate show={entered}>
     <Paragraph>Upcoming missions including both SpaceX launches and newly scheduled Zero to Mastery rockets.</Paragraph>
