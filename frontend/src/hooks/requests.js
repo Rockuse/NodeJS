@@ -2,6 +2,7 @@ const API_URL = process.env.NODE_ENV !== 'production'?'http://localhost:8000':pr
 // console.log(process.env.NODE_ENV)
 // console.log(process.env.REACT_APP_API_URL)
 async function httpGetPlanets() {
+  // console.log(API_URL)
   // TODO: Once API is ready.
   const response = await fetch(`${API_URL}/planets`)
   return await response.json()
@@ -10,7 +11,7 @@ async function httpGetPlanets() {
 
 async function httpGetLaunches() {
   // TODO: Once API is ready.
-  
+  // console.log(API_URL)
   const response = await fetch(`${API_URL}/launches`)
   const fetchedlaunches = await response.json()
   return fetchedlaunches.sort((a, b) => {
@@ -54,7 +55,7 @@ async function httpsuccessLaunch(id) {
       method: 'PUT',
     })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return { ok: false }
   }
   // TODO: Once API is ready.

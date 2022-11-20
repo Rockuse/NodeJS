@@ -1,12 +1,7 @@
-const { habitablePlanets } = require('@storage/storage');
+// const { habitablePlanets } = require('@storage/storage');
+const { getAllPlanets } = require('./planet.models');
 
 const planets = {
-  getAll: (req, res) => [
-    res.json(
-      habitablePlanets
-    ),
-  ],
-
+  getAll: async (req, res) => res.status(200).json(await getAllPlanets()),
 };
-
 module.exports = planets;
