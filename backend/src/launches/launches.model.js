@@ -20,9 +20,10 @@ launches.set(launch.flightNumber, launch);
 function getAllLaunches() {
   return db.find({});
 }
-function getMaxLaunches() {
+async function getMaxLaunches() {
   try {
-    return db.find({}, 'flightNumber').sort({ flightNumber: -1 }).limit(1);
+    const maxNumber= await  db.findOne({}, {_id:0,flightNumber:1}).sort({ flightNumber: -1 }).limit(1);
+    return !maxNumber? launch.flightNumber:maxNumber + 1
   } catch (error) {
     return console.log(error.message);
   }
@@ -39,9 +40,9 @@ async function addDataLaunch(item) {
   try {
     // TODO : add mission
     const latestFlightNumber = await getMaxLaunches();
-    // console.log(latestFlightNumber[0]);
+    console.log(latestFlightNumber);
     item.customers = item.customers.split(',');
-    item.flightNumber = Number(latestFlightNumber[0].flightNumber) + 1;
+    item.flightNumber = Number(latestFlightNumber.flightNumber) ;
     await saveMission(item);
     return { ok: true };
   } catch (error) {
@@ -51,7 +52,7 @@ async function addDataLaunch(item) {
 }
 
 function existLaunchById(id) {
-  return db.findOne({ flightNumber: id });
+  return db.findOne({ flightNumber: id },{'_id':0,'__v':0});
 }
 
 async function abortLaunchById(id) {

@@ -33,6 +33,7 @@
     "@src": "src",
     "@storage": "public/storage",
     "@doc": "public/doc",
-    "@config": "config"
+    "@config": "config",
+    "@routes": "src/routes"
   }
 }
