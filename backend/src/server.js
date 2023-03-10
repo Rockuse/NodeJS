@@ -6,7 +6,7 @@ const fs = require('fs')
 const {resolve} = require('path')
 const { loadPlanetData } = require('@src/planets/planet.models');
 const app = require('@src/app');
-
+const URL= process.env.NODE_ENV !== 'production' ? 'localhost' : process.env.URL
 const PORT = process.env.PORT || 8000;
 const server = https.createServer({
   key:  fs.readFileSync(resolve(__dirname, '../../key.pem')),
@@ -20,10 +20,11 @@ mongoose.connection.on('error', (err) => {
   console.error(err);
 });
 async function start() {
+  console.log(URL,PORT)
   await mongoose.connect(process.env.MONGODB_URL);
   await loadPlanetData();
-  server.listen(PORT, process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0', () => {
-    console.log(`connected to ${process.env.NODE_ENV}`);
+  server.listen(PORT, URL, () => {
+    console.log(`connected to ${process}`);
   });
 }
 start();
