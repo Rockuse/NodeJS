@@ -12,8 +12,8 @@ module.exports = (app, express) => {
   app.use(express.urlencoded({ extended: false }));
   passport.use(new Strategy(AUTH_OPTIONS, AuthMethod.verifyCallback))
   app.use(helmet());
-  app.use(passport.initialize())
-  app.use('/auth', AuthRouter(express.Router(),passport))
+  app.use(passport.initialize());
+  app.use('/', AuthRouter(express.Router(),passport))
   app.use(cookieSession({
     name: 'session',
     maxAge: 1000 * 60 * 60 * 24,

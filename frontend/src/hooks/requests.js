@@ -1,4 +1,5 @@
-const API_URL = process.env.NODE_ENV !== 'production'?'http://localhost:8000/v1':process.env.REACT_APP_API_URL+'/v1'
+const API_URL = process.env.NODE_ENV !== 'production'?'https://localhost:8000/v1':process.env.REACT_APP_API_URL+'/v1'
+console.log(API_URL)
 // console.log(process.env.NODE_ENV)
 // console.log(process.env.REACT_APP_API_URL)
 async function httpGetPlanets() {
