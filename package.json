@@ -12,7 +12,8 @@
     "watch": "concurrently \"npm run server\" \"npm run client\"",
     "deploy": "concurrently \"npm run build --prefix frontend\" \"npm run server\"",
     "deploy-aws": "concurrently \"npm run build-aws --prefix frontend\" \"npm run server\"",
-    "install-module": "npm install && npm install --prefix backend && npm install --prefix frontend"
+    "install-module": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "install-module-prod": "npm install --only=production && npm install --prefix backend --only=production && npm install --prefix frontend --only=production"
   },
   "repository": {
     "type": "git",
