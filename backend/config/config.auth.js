@@ -22,13 +22,12 @@ const AuthRouter = (router, passport) => {
     router.get('/secret', (req, res) => {
         res.sendFile(resolve(__dirname, '../public/index.html'));
       });
-    router.get('/google', 
-    passport.authenticate('google',{scope:['email']}))
+    router.get('/google', passport.authenticate('google',{scope:['email']}))
     router.get('/google/callback'
         , passport.authenticate('google', {
             failureRedirect: '/failure'
             , successRedirect: '/'
-            , session: false
+            , session: true
         })
         , (req, res) => { console.log('google called us back!') })
     router.get('/logout', (req, res) => { })

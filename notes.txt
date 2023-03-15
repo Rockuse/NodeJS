@@ -31,3 +31,14 @@ openssl req -x509 -newkey rsa: 4096 -nodes -keyout key.pem -out cert.pem -days 3
 GOOGLE OAUTH
 477639165205-0h0q7sa2geieglpb4k560hi2kd8cjlnd.apps.googleusercontent.com
 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
+
+
+OAUTH Setting
+passport use new Strategy
+passport.serialize and deserialize function (obj,done)
+use(helmet())
+use passport initialize
+use passport session()
+use cookieSession ({name,maxAge,keys:[]})
+build auth google
+use authrouter

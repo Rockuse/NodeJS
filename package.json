@@ -26,8 +26,8 @@
   "homepage": "https://github.com/Rockuse/Planet-Project#readme",
   "dependencies": {
     "concurrently": "^7.5.0",
-    "cookie-session": "^2.0.0",
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "passport": "^0.5.3"
   },
   "devDependencies": {
     "supertest": "^6.3.1"
