@@ -26,6 +26,7 @@ lsof -i :5000
 kill -15 <PID>
 http://54.169.198.120:5000/notes
 
+
 SSL
 openssl req -x509 -newkey rsa: 4096 -nodes -keyout key.pem -out cert.pem -days 365
 GOOGLE OAUTH
@@ -42,3 +43,7 @@ use passport session()
 use cookieSession ({name,maxAge,keys:[]})
 build auth google
 use authrouter
+
+DOCKER
+docker build . -t fahmi/nasa-project
+docker run -it -p 8000:8000 fahmi/nasa-project -it
