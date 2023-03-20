@@ -3,6 +3,7 @@ FROM node:16.18.1
 WORKDIR /app
 
 COPY package*.json ./
+COPY *.pem ./
 COPY backend/package*.json backend/
 COPY frontend/package*.json frontend/
 
@@ -15,6 +16,6 @@ COPY backend/ backend/
 
 USER node
 
-CMD ["npm","start","--prefix","backend"]
+CMD ["npm","run","server"]
 
 EXPOSE 8000
