@@ -1,11 +1,11 @@
 require('dotenv').config();
-const getConfig = (env) => {
-    try {
-        return eval(`process.env.${env.toUpperCase()}`)
-    } catch (error) {
-        return ''
-    }
 
-}
+const getConfig = (config) => {
+  try {
+    return process.env[config];
+  } catch (error) {
+    return '';
+  }
+};
 
-module.exports = { getConfig }
+module.exports = { getConfig };
