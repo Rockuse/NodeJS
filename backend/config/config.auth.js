@@ -33,7 +33,7 @@ const AuthRouter = (router, passport) => {
     }),
     (req, res) => { console.log('google called us back!'); },
   );
-  router.get('/logout', (req, res) => { });
+  router.get('/logout', (req, res) => { res.logout(); });
   router.get('/failure', (req, res) => { res.send('Failed to log in!'); });
   router.get('/success', (req, res) => { res.send('Failed to log in!'); });
   return router;
