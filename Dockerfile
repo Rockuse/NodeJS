@@ -10,12 +10,13 @@ RUN npm run install-module-prod
 
 COPY frontend/ frontend/
 RUN npm run build
-RUN mv frontend/build backend/
 
 COPY backend/ backend/
 
 USER node
 
+EXPOSE 8000
+
 CMD ["npm","run","server"]
 
-EXPOSE 8000
+
